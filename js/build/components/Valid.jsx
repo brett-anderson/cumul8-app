@@ -3,13 +3,25 @@ var React          = require('react'),
     Link           = require('react-router').Link,
     State          = require('react-router').State;
 
+var Record = React.createClass({
+  render: function() {
+    return (
+      <tr> 
+        <td>{this.props.email}</td>
+        <td>{this.props.time}</td>
+        <td>{this.props.type}</td>
+      </tr>
+    )
+  }
+})
+
+
 var Valid = React.createClass({
   mixins: [State],
 
   getInitialState: function() {
     var fields = TimesheetStore.getFields();
     var records = TimesheetStore.getRecords();
-    console.log(fields);
     return {
       email: fields.email,
       time: fields.time,
@@ -19,16 +31,11 @@ var Valid = React.createClass({
   },
 
   render: function() {
-    var recordNodes = this.state.records.map(function (record) {
+    var records = this.state.records.map(function (record) {
       return (
-        <tr key={record.id}> 
-          <td>{record.email}</td>
-          <td>{record.time}</td>
-          <td>{record.type}</td>
-        </tr>
+        <Record key={record.id} email={record.email} time={record.time} type={record.type}  />
       )
     });
-
     return (
       <div className="row">
         <div className="col-md-4 col-centered box text-center valid">
@@ -39,7 +46,7 @@ var Valid = React.createClass({
             <th>Email</th>
             <th>Time</th>
             <th>Type</th>
-            {recordNodes}
+            {records}
           </table>
           <Link className="btn btn-default" to="addTime">Add another? </Link>
         </div>

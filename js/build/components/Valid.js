@@ -3,13 +3,25 @@ var React          = require('react'),
     Link           = require('react-router').Link,
     State          = require('react-router').State;
 
+var Record = React.createClass({displayName: "Record",
+  render: function() {
+    return (
+      React.createElement("tr", null, 
+        React.createElement("td", null, this.props.email), 
+        React.createElement("td", null, this.props.time), 
+        React.createElement("td", null, this.props.type)
+      )
+    )
+  }
+})
+
+
 var Valid = React.createClass({displayName: "Valid",
   mixins: [State],
 
   getInitialState: function() {
     var fields = TimesheetStore.getFields();
     var records = TimesheetStore.getRecords();
-    console.log(fields);
     return {
       email: fields.email,
       time: fields.time,
@@ -19,16 +31,11 @@ var Valid = React.createClass({displayName: "Valid",
   },
 
   render: function() {
-    var recordNodes = this.state.records.map(function (record) {
+    var records = this.state.records.map(function (record) {
       return (
-        React.createElement("tr", {key: record.id}, 
-          React.createElement("td", null, record.email), 
-          React.createElement("td", null, record.time), 
-          React.createElement("td", null, record.type)
-        )
+        React.createElement(Record, {key: record.id, email: record.email, time: record.time, type: record.type})
       )
     });
-
     return (
       React.createElement("div", {className: "row"}, 
         React.createElement("div", {className: "col-md-4 col-centered box text-center valid"}, 
@@ -39,7 +46,7 @@ var Valid = React.createClass({displayName: "Valid",
             React.createElement("th", null, "Email"), 
             React.createElement("th", null, "Time"), 
             React.createElement("th", null, "Type"), 
-            recordNodes
+            records
           ), 
           React.createElement(Link, {className: "btn btn-default", to: "addTime"}, "Add another? ")
         )
