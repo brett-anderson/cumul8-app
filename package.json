@@ -12,10 +12,10 @@
     "browserify": "^10.1.3"
   },
   "scripts": {
-    "build-js": "browserify -r js/main.js | uglifyjs -mc > js/bundle.min.js", 
+    "build-js": "browserify -r js/source/main.js | uglifyjs -mc > js/bundle.min.js", 
     "build": "npm run build-js",
-    "react": " jsx js/build js/build -w --extension jsx",
-    "watch-js": "watchify js/build/main.js -o js/bundle.js -dv",
+    "react": " jsx js/source js/source -w --extension jsx",
+    "watch-js": "watchify js/source/main.js -o js/bundle.js -dv",
     "watch": "npm run watch-js & npm run react"
   },
   "repository": {

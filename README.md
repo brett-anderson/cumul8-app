@@ -26,3 +26,5 @@ Here's a list of the features that you've asked me to implement:
 - I've uploaded this to my personal server, partly for ease of viewing, but also to show that I'm comfortable working with servers and the command line.
 - I've used Bootstrap as a CSS framework, and then themed it to my liking.
 - I have modified Figure C to include a list of all the logged hours, it is being persisted with LocalStorage. Was easy enough to do.
+- I've used commonJS and browserify to handle required modules in my JS, so everything is inside of js/bundle.js. As for the react jsx files, I've left them in there, and their compiled js versions are along side them, with the same name, but with a .js filename.
+- js/bundle.js is created from js/build/main.js, which is the entry point for the react app.
