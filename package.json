@@ -1,0 +1,31 @@
+{
+  "name": "cumul8-app",
+  "version": "1.0.0",
+  "description": "This is my app, I hope you like it!",
+  "main": "index.html",
+  "dependencies": {
+    "browserify": "^10.1.3",
+    "react": "^0.13.3",
+    "watchify": "^3.2.1"
+  },
+  "devDependencies": {
+    "browserify": "^10.1.3"
+  },
+  "scripts": {
+    "build-js": "browserify -r js/build-js/main.js | uglifyjs -mc > js/bundle.js", 
+    "build": "npm run build-js",
+    "react": " jsx js/build js/build -w --extension jsx",
+    "watch-js": "watchify js/build/main.js -o js/bundle.js -dv",
+    "watch": "npm run watch-js & npm run react"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/brett-anderson/cumul8-app.git"
+  },
+  "author": "Brett Anderson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brett-anderson/cumul8-app/issues"
+  },
+  "homepage": "https://github.com/brett-anderson/cumul8-app"
+}

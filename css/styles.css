@@ -1,0 +1,85 @@
+body {
+  background: #efefef;
+}
+
+header {
+  background: #2980b9;
+  color: white;
+  box-shadow: 1px 1px 3px #333;
+}
+
+.col-centered {
+  float: none;
+}
+
+.box {
+  margin: 20px auto;
+  background: white;
+  box-shadow: 1px 1px 3px #999;
+  padding: 20px;
+}
+
+.box p {
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #999;
+  border-radius: 0;
+}
+.btn-group-vertical {
+  width: 100%;
+}
+.btn-group-vertical .btn {
+  border-radius: 0;
+  text-align: left;
+}
+.form-actions {
+  margin-top: 20px;
+}
+.btn {
+  box-shadow: 1px 1px 3px #ccc;
+  border-radius: 0;
+  background: #2980b9;
+}
+
+/*overriding bootstrap*/
+.btn-group-vertical>.btn:last-child:not(:first-child) {
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+.btn-group-vertical>.btn:first-child:not(:last-child) {
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+}
+
+#app .input-group {
+  border: none;
+  margin: 10px 0;
+}
+
+#app textarea {
+  border: none;
+  margin: 10px 0;
+}
+button span {
+  pointer-events: none;
+}
+.loading {
+  position: absolute;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.4);
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+.loading i {
+  position: relative;
+  margin-top: 31%;
+  color: white;
+}
+.valid i {
+  color: #66BB6A;
+}
+.valid a {
+  color: white;
+}

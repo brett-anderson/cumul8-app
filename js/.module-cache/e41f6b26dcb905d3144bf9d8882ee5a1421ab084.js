@@ -1,0 +1,12 @@
+var React = require('react');
+
+app = React.createClass({displayName: "app",
+  render: function() {
+    return (
+      React.createElement("h1", null, "Hello World!")
+
+    )
+  }
+})
+var ok;
+module.exports = app;
